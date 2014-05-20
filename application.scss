@@ -1,0 +1,101 @@
+@import "bourbon";
+@import "bourbon", "neat";
+@import "variables";
+@import "web-fonts";
+@include web-fonts("Open Sans", ("Raleway": ("900")));
+
+body {
+  @include background-image( linear-gradient(#fff, #e6e6e6) );
+  font-family: $helvetica;
+  line-height: 1.5em;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 1em;
+  color: $darkgray;
+}
+
+a, a:visited {
+  color: $gray;
+  @include transition(color 0.4s linear);
+}
+
+a:hover, a:active {
+  color: lighten($blue, 50%);
+}
+
+h1 {
+  font-size: 1.615em;
+  font-style: bold;
+  text-transform: uppercase;
+  color: $black;
+  font-family: $raleway;
+  border-bottom: 1px solid $gray;
+  
+  @include media($desktop) {
+    font-size: 3.615em;
+    line-height: 1.333em;
+  }
+}
+
+h2 {
+  @extend h1;
+  font-size: 1.538em;
+  line-height: 1.45em;
+  font-family: $sans;
+  margin-top: 1.5em;
+  
+  @include media($mobile) {
+    font-size: 1.1em;
+    line-height: 1.333em;
+  }
+}
+
+section {
+  @include outer-container;
+  
+  aside {
+    @include span-columns(12);
+    
+    @include media($desktop) {
+      @include span-columns(5);
+    }
+  }
+  
+  article {
+    @include span-columns(12);
+    
+    @include media($desktop) {
+      @include span-columns(7);
+    }
+  }
+  
+  figure {
+    margin-bottom: 1.5em;
+    margin-top: 0;
+    margin-right: 0;
+  }
+}
+
+figcaption {
+  color: darken($gray, 10%);
+  font-size: em(11, $base-value);
+  font-style: italic;
+  line-height: 1.45em;
+  margin: .5em 0;
+}
+
+footer {
+  font-size: em(12, $base-value);
+  font-style: italic;
+  margin: 2em 0;
+  text-align: left;
+  color: lighten($gray, 5%);
+}
+
+.content-image {
+  @include fill-parent;
+}
+
+.button {
+	@include button($blue);
+}
